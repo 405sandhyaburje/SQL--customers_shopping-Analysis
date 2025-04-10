@@ -1,0 +1,20 @@
+1)	See all the data      SELECT * FROM customers_shopping_data; 
+2)	Limit to 10 rows      SELECT * FROM customers_shopping_data LIMIT 10;
+3)Use SELECT, WHERE, ORDER BY, GROUP BY
+Total number of customers-
+A.SELECT COUNT(DISTINCT customer_id) AS total_customers FROM  customers_shopping_data;
+Total revenue 
+B.SELECT SUM(price) AS total_amount FROM customer_shopping_data;
+4) Use GROUP BY, ORDER BY
+Total spent per customer less than 10000
+A.SELECT customer_id, SUM(price) AS total_amount
+FROM customer_shopping_data
+GROUP BY customer_id
+HAVING total_amount > 10000;
+5) sold categories based on total quantity sold.
+Top sold item
+A.SELECT category, SUM(quantity) AS total_sold
+FROM customer_shopping_data
+GROUP BY category
+ORDER BY total_sold DESC
+LIMIT 1;
